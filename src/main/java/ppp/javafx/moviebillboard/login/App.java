@@ -13,7 +13,7 @@ import ppp.javafx.moviebillboard.util.Config;
  */
 public class App extends Application {
 
-private static Stage primaryStage;
+	private static Stage primaryStage;
 	
 	private static LoginController loginController;
 	private static MainController mainController;
@@ -21,11 +21,13 @@ private static Stage primaryStage;
 	private static Scene loginScene;
 	private static Scene mainScene;
 	
+	/*
 	@Override
 	public void init() throws Exception {
 		Config.initDatabase();
 		super.init();
 	}
+	*/
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -39,8 +41,9 @@ private static Stage primaryStage;
 		mainScene = new Scene(mainController.getView());
 		
 		primaryStage.setScene(loginScene);
-		primaryStage.setTitle("¡Welcome to The Movie Billboard!");
-		primaryStage.getIcons().add(new Image("/images/moviebillboard_icon.ico"));
+		primaryStage.setTitle("¡Bienvenido a The Movie Billboard!");
+		primaryStage.getIcons().add(new Image("/images/icon.png"));
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	
