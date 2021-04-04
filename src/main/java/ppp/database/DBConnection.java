@@ -7,14 +7,9 @@ import java.sql.SQLException;
 import ppp.javafx.moviebillboard.util.Config;
 
 /**
- * This class is used to connect the data base
- * 
- * @author Melania, Alexis, Ayoze & Aarón
- * @version 01/02/2021
- * @see <a href = "https://github.com/dam-dad/OwnComputerTPV" /> OwnComputer
- *      Github </a>
+ * @author Ayoze Amaro
+ *
  */
-
 public class DBConnection {
 
 	public static Connection connect() {
