@@ -1,6 +1,9 @@
 package ppp.javafx.moviebillboard.main;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import ppp.javafx.moviebillboard.model.Movie;
+import ppp.javafx.moviebillboard.util.MenuFunctions;
 
 /**
  * @author Ayoze Amaro
@@ -50,12 +54,21 @@ public class MainController implements Initializable {
 	void onExportPDFAction(ActionEvent event) throws IOException { }
 	@FXML
 	void onReportProblemAction(ActionEvent event) throws IOException { }
+	
 	@FXML
-	void onExitAction(ActionEvent event) throws IOException { }
+	void onExitAction(ActionEvent event) throws IOException { 
+    	MenuFunctions.exitAplication(event, view);
+	}
+	
 	@FXML
-	void onGitHubAction(ActionEvent event) throws IOException { }
+	void onGitHubAction(ActionEvent event) throws IOException { 
+		MenuFunctions.openGitHub(event);
+	}
+	
 	@FXML
-	void onLinkedInAction(ActionEvent event) throws IOException { }
+	void onLinkedInAction(ActionEvent event) throws IOException { 
+		MenuFunctions.openLinkedIn(event);
+	}
 
 	
 	// BUTTONS (CRUD)

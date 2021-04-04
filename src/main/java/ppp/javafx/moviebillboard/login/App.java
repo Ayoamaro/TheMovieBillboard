@@ -21,13 +21,11 @@ public class App extends Application {
 	private static Scene loginScene;
 	private static Scene mainScene;
 	
-	/*
 	@Override
 	public void init() throws Exception {
 		Config.initDatabase();
 		super.init();
 	}
-	*/
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -53,7 +51,7 @@ public class App extends Application {
 	
 	public static void goToMovieBillboard() {
 		primaryStage.setScene(mainScene);
-		primaryStage.setTitle("TheMovieBillboard");
+		primaryStage.setTitle("The Movie Billboard");
 	}
 
 	public static void main(String[] args) {
