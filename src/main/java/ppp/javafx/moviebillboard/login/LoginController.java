@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,11 +60,11 @@ public class LoginController implements Initializable {
 	@FXML
 	void onLoginAction(ActionEvent event) throws IOException { 
 		Boolean verify = false;
-		String md5Password = model.getPswd();
+		String md5Password = DigestUtils.md5Hex(model.getPswd()).toUpperCase();
 		String md5User = model.getUser();
 		
 		for (int i = 0; i < linesCSV.size(); i++) {
-			String[] dataFile = linesCSV.get(i).split(",");
+			String[] dataFile = linesCSV.get(i).split(";");
 		    String userEach = dataFile[0];
 		    String passEach = dataFile[1];
 
