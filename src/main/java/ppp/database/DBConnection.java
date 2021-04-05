@@ -12,17 +12,33 @@ import ppp.javafx.moviebillboard.util.Config;
  */
 public class DBConnection {
 
-	public static Connection connect() {
-		Connection con = null;
-		try {
-			String connectionString = "jdbc:sqlite:" + Config.getDbFile().getAbsolutePath();
-			Class.forName("org.sqlite.JDBC");
-			con = DriverManager.getConnection(connectionString);
-			System.out.println("Connected to " + connectionString);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
+	private Connection con;
+	private static String nom = Config.getDbFile().getAbsolutePath();
+	private static String url = "jdbc:sqlite:";
+
+	public Connection getCon() {
 		return con;
 	}
-
+	public void setCon(Connection con) {
+		this.con = con;
+	}
+	
+	public void establishConnection() {
+		try {
+			Class.forName("org.sqlite.JDBC");
+			con = DriverManager.getConnection(url + nom);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void closeConnection() {
+		try {
+			con.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 }

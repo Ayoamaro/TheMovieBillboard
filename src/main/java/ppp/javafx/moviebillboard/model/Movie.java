@@ -1,5 +1,9 @@
 package ppp.javafx.moviebillboard.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,76 +20,107 @@ public class Movie {
 	private IntegerProperty agno;
 	private StringProperty pais;
 	private StringProperty director;
+	private IntegerProperty idTipo;
 	
-	public Movie(Integer id, String nombre, Integer agno, String pais, String director) {
+	public Movie () { }
+	
+	public Movie(Integer id, String nombre, Integer agno, String pais, String director, Integer idTipo) {
+		super();
 		this.id = new SimpleIntegerProperty(id);
 		this.nombre = new SimpleStringProperty(nombre);
 		this.agno = new SimpleIntegerProperty(agno);
 		this.pais = new SimpleStringProperty(pais);
 		this.director = new SimpleStringProperty(director);
+		this.idTipo = new SimpleIntegerProperty(idTipo);
 	}
 	
-	public final IntegerProperty idProperty() {
-		return this.id;
+	public int getId(){
+		return id.get();
+	}
+
+	public void setId(Integer id){
+		this.id = new SimpleIntegerProperty(id);
 	}
 	
-	public final int getId() {
-		return this.idProperty().get();
+	public String getNombre(){
+		return nombre.get();
+	}
+
+	public void setNombre(String nombre){
+		this.nombre = new SimpleStringProperty(nombre);
 	}
 	
-	public final void setId(final int id) {
-		this.idProperty().set(id);
+	public Integer getAgno(){
+		return agno.get();
+	}
+
+	public void setAgno(Integer agno){
+		this.agno = new SimpleIntegerProperty(agno);
 	}
 	
-	public final StringProperty nombreProperty() {
-		return this.nombre;
+	public String getPais(){
+		return pais.get();
+	}
+
+	public void setPais(String pais){
+		this.pais = new SimpleStringProperty(pais);
+	}
+
+	public String getDirector(){
+		return director.get();
+	}
+
+	public void setDirector(String director){
+		this.director = new SimpleStringProperty(director);
 	}
 	
-	public final String getNombre() {
-		return this.nombreProperty().get();
+	public Integer getIdTipo(){
+		return idTipo.get();
+	}
+
+	public void setIdTipo(Integer idTipo){
+		this.idTipo = new SimpleIntegerProperty(idTipo);
 	}
 	
-	public final void setNombre(final String nombre) {
-		this.nombreProperty().set(nombre);
+	public int createData(Connection con) {
+		try {
+			String sql = "INSERT INTO pelicula (id, nombre, agno, pais, director, idTipo) VALUES (?,?,?,?,?,?)";
+			PreparedStatement insert = con.prepareStatement(sql);
+		
+			insert.setInt(1, id.get());
+			insert.setString(2, nombre.get());
+			insert.setInt(3, agno.get());
+			insert.setString(4, pais.get());
+			insert.setString(5, director.get());
+			insert.setInt(6, idTipo.get());
+			
+			return insert.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		
 	}
 	
-	public final IntegerProperty agnoProperty() {
-		return this.agno;
+	public int updateData(Connection con, Movie selected) {
+		
+		try {
+			String sql = "UPDATE pelicula SET id=?, nombre=?, agno=?, pais=?, director=?, idTipo=? WHERE id= " + selected.getId();
+			PreparedStatement update = con.prepareStatement(sql);
+
+			update.setInt(1, id.get());
+			update.setString(2, nombre.get());
+			update.setInt(3, agno.get());
+			update.setString(4, pais.get());
+			update.setString(5, director.get());
+			update.setInt(6, idTipo.get());
+			
+			return update.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		
 	}
-	
-	public final int getAgno() {
-		return this.agnoProperty().get();
-	}
-	
-	public final void setAgno(final int agno) {
-		this.agnoProperty().set(agno);
-	}
-	
-	public final StringProperty paisProperty() {
-		return this.pais;
-	}
-	
-	public final String getPais() {
-		return this.paisProperty().get();
-	}
-	
-	public final void setPais(final String pais) {
-		this.paisProperty().set(pais);
-	}
-	
-	public final StringProperty directorProperty() {
-		return this.director;
-	}
-	
-	public final String getDirector() {
-		return this.directorProperty().get();
-	}
-	
-	public final void setDirector(final String director) {
-		this.directorProperty().set(director);
-	}
-	
-	
-	
 	
 }
