@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ppp.javafx.moviebillboard.main.MainController;
 import ppp.javafx.moviebillboard.util.Config;
-import ppp.javafx.moviebillboard.util.MenuFunctions;
 
 /**
  * @author Ayoze Amaro

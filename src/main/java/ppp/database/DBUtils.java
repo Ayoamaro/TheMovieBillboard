@@ -9,9 +9,13 @@ import java.sql.SQLException;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ppp.javafx.moviebillboard.model.Movie;
 
@@ -21,6 +25,44 @@ import ppp.javafx.moviebillboard.model.Movie;
  */
 public class DBUtils {
 
+	public static void solvedProblems(int errorDetected, BorderPane view) {
+		switch (errorDetected) {
+			case 1:
+				Stage stage = (Stage)view.getScene().getWindow();
+				
+				Alert alert = new Alert(AlertType.INFORMATION);
+		    	alert.setTitle("Error al editar una película");
+		    	alert.setHeaderText(null);
+		    	alert.setContentText("Debe seleccionar una película si desea editar. Por favor, vuelva a intentarlo.");
+		    	alert.initModality(Modality.APPLICATION_MODAL);
+		    	alert.initOwner(stage);
+		    	alert.showAndWait();
+				break;
+			case 2:
+				stage = (Stage)view.getScene().getWindow();
+				
+				alert = new Alert(AlertType.INFORMATION);
+		    	alert.setTitle("Error al eliminar una película");
+		    	alert.setHeaderText(null);
+		    	alert.setContentText("Debe seleccionar una película si desea eliminarla. Por favor, vuelva a intentarlo.");
+		    	alert.initModality(Modality.APPLICATION_MODAL);
+		    	alert.initOwner(stage);
+		    	alert.showAndWait();
+				break;
+			case 3:
+				stage = (Stage)view.getScene().getWindow();
+				
+				alert = new Alert(AlertType.INFORMATION);
+		    	alert.setTitle("Error al ver los detalles una película");
+		    	alert.setHeaderText(null);
+		    	alert.setContentText("Debe seleccionar una película si desea ver sus detalles. Por favor, vuelva a intentarlo.");
+		    	alert.initModality(Modality.APPLICATION_MODAL);
+		    	alert.initOwner(stage);
+		    	alert.showAndWait();
+				break;
+		}
+	}
+	
 	public static void readData(Connection con, ObservableList<Movie> list) {
 		try {
 			String sql = "SELECT * FROM pelicula";
@@ -42,6 +84,46 @@ public class DBUtils {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static int createData(Connection con, Movie newMovie) {
+		try {
+			String sql = "INSERT INTO pelicula (id, nombre, agno, pais, director, idTipo) VALUES (?,?,?,?,?,?)";
+			PreparedStatement insert = con.prepareStatement(sql);
+		
+			insert.setInt(1, newMovie.getId());
+			insert.setString(2, newMovie.getNombre());
+			insert.setInt(3, newMovie.getAgno());
+			insert.setString(4, newMovie.getPais());
+			insert.setString(5, newMovie.getDirector());
+			insert.setInt(6, newMovie.getIdTipo());
+			
+			return insert.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		
+	}
+	
+	public static int updateData(Connection con, Movie selected) {
+		try {
+			String sql = "UPDATE pelicula SET id=?, nombre=?, agno=?, pais=?, director=?, idTipo=? WHERE id= " + selected.getId();
+			PreparedStatement update = con.prepareStatement(sql);
+
+			update.setInt(1, selected.getId());
+			update.setString(2, selected.getNombre());
+			update.setInt(3, selected.getAgno());
+			update.setString(4, selected.getPais());
+			update.setString(5, selected.getDirector());
+			update.setInt(6, selected.getIdTipo());
+			
+			return update.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		
 	}
 	
 	public static void showInfo(Connection con, Integer selected) throws IOException {

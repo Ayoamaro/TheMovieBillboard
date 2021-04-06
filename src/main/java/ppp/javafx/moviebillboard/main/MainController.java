@@ -13,8 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -30,13 +28,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ppp.database.DBConnection;
 import ppp.database.DBUtils;
 import ppp.javafx.moviebillboard.login.App;
-import ppp.javafx.moviebillboard.model.Login;
 import ppp.javafx.moviebillboard.model.Movie;
 import ppp.javafx.moviebillboard.util.MenuFunctions;
 
@@ -49,6 +45,7 @@ public class MainController implements Initializable {
 	// MODEL
 	private ListProperty<Movie> movieList = new SimpleListProperty<Movie>(FXCollections.observableArrayList());
 	private DBConnection con;
+	private Integer errorDetected = 1;
 	
 	// VIEW
 	@FXML
@@ -186,7 +183,7 @@ public class MainController implements Initializable {
 				newMovie.setIdTipo(idTipo.getValue());
 				
 				con.establishConnection();
-				newMovie.createData(con.getCon());
+				DBUtils.createData(con.getCon(), newMovie);
 				con.closeConnection();
 	        	
 	    		return newMovie;
@@ -205,16 +202,8 @@ public class MainController implements Initializable {
 		Movie selected = movieTBL.getSelectionModel().getSelectedItem();
 		
 		if (selected == null) {
-			Stage stage = (Stage)view.getScene().getWindow();
-			
-			Alert alert = new Alert(AlertType.INFORMATION);
-	    	alert.setTitle("Error al editar una película");
-	    	alert.setHeaderText(null);
-	    	alert.setContentText("Debe seleccionar una película si desea editar. Por favor, vuelva a intentarlo.");
-	    	alert.initModality(Modality.APPLICATION_MODAL);
-	    	alert.initOwner(stage);
-	    	
-	    	alert.showAndWait();
+			errorDetected = 1;
+			DBUtils.solvedProblems(errorDetected, view);
 		} else {
 			Dialog<Movie> tab = new Dialog<Movie>();
 			tab.setTitle("Editar película: " + selected.getNombre().toString());
@@ -270,7 +259,7 @@ public class MainController implements Initializable {
 					newMovie.setIdTipo(idTipo.getValue());
 					
 					con.establishConnection();
-					newMovie.updateData(con.getCon(), selected);
+					DBUtils.updateData(con.getCon(), selected);
 					con.closeConnection();
 		        	
 		    		return newMovie;
@@ -294,16 +283,8 @@ public class MainController implements Initializable {
 		Movie movieSelected = movieTBL.getSelectionModel().getSelectedItem();
 
 		if (movieSelected == null) {
-			Stage stage = (Stage)view.getScene().getWindow();
-			
-			Alert alert = new Alert(AlertType.INFORMATION);
-	    	alert.setTitle("Error al eliminar una película");
-	    	alert.setHeaderText(null);
-	    	alert.setContentText("Debe seleccionar una película si desea eliminarla. Por favor, vuelva a intentarlo.");
-	    	alert.initModality(Modality.APPLICATION_MODAL);
-	    	alert.initOwner(stage);
-	    	
-	    	alert.showAndWait();
+			errorDetected = 2;
+			DBUtils.solvedProblems(errorDetected, view);
 		} else {
 			Integer selected = movieSelected.getId();
 			
@@ -337,16 +318,8 @@ public class MainController implements Initializable {
 		Movie movieSelected = movieTBL.getSelectionModel().getSelectedItem();
 		
 		if (movieSelected == null) {
-			Stage stage = (Stage)view.getScene().getWindow();
-			
-			Alert alert = new Alert(AlertType.INFORMATION);
-	    	alert.setTitle("Error al ver los detalles una película");
-	    	alert.setHeaderText(null);
-	    	alert.setContentText("Debe seleccionar una película si desea ver sus detalles. Por favor, vuelva a intentarlo.");
-	    	alert.initModality(Modality.APPLICATION_MODAL);
-	    	alert.initOwner(stage);
-	    	
-	    	alert.showAndWait();
+			errorDetected = 3;
+			DBUtils.solvedProblems(errorDetected, view);
 		} else {
 			Integer selected = movieSelected.getId();
 			

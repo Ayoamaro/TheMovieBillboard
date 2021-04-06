@@ -1,9 +1,5 @@
 package ppp.javafx.moviebillboard.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -80,47 +76,6 @@ public class Movie {
 
 	public void setIdTipo(Integer idTipo){
 		this.idTipo = new SimpleIntegerProperty(idTipo);
-	}
-	
-	public int createData(Connection con) {
-		try {
-			String sql = "INSERT INTO pelicula (id, nombre, agno, pais, director, idTipo) VALUES (?,?,?,?,?,?)";
-			PreparedStatement insert = con.prepareStatement(sql);
-		
-			insert.setInt(1, id.get());
-			insert.setString(2, nombre.get());
-			insert.setInt(3, agno.get());
-			insert.setString(4, pais.get());
-			insert.setString(5, director.get());
-			insert.setInt(6, idTipo.get());
-			
-			return insert.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return 0;
-		}
-		
-	}
-	
-	public int updateData(Connection con, Movie selected) {
-		
-		try {
-			String sql = "UPDATE pelicula SET id=?, nombre=?, agno=?, pais=?, director=?, idTipo=? WHERE id= " + selected.getId();
-			PreparedStatement update = con.prepareStatement(sql);
-
-			update.setInt(1, id.get());
-			update.setString(2, nombre.get());
-			update.setInt(3, agno.get());
-			update.setString(4, pais.get());
-			update.setString(5, director.get());
-			update.setInt(6, idTipo.get());
-			
-			return update.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return 0;
-		}
-		
 	}
 	
 }

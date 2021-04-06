@@ -55,8 +55,6 @@ public class MenuFunctions {
 	    stage.show();
 	}
 	
-	
-	
 	public static void exitAplication(Event event, BorderPane view) {
 		Stage stage = (Stage)view.getScene().getWindow();
 		
