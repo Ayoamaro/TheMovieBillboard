@@ -85,37 +85,14 @@ public class DBUtils {
 	}
 
 	
-	/*
-	private static String infoCPU(String name) {
-		String info = "";
-		java.sql.Connection con =  DBConnection.connect();
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
+	public static void deleteData(Connection con, Integer selected) {
 		try {
-			String sql = "SELECT core, frecuency, nameSo, priceCPU FROM CPU "
-					+ "inner join socket on CPU.socket = socket.idsocket "
-					+ "where nameCPU = '" + name + "'";
-			ps = ((java.sql.Connection) con).prepareStatement(sql);
-			rs = ps.executeQuery();
-			info = "Name of CPU: " + name + "\n"
-					+ "Number of cores: " + rs.getInt("core") + "\n"
-					+ "Frecuency: " + rs.getString("frecuency") + "\n"
-					+ "Type of Socket: " + rs.getString("nameSo") + "\n"
-					+ "Price: " + rs.getInt("priceCPU");
-		}catch(SQLException e) {
-			System.out.println(e.toString());
-		} finally {
-			try {
-			rs.close();
-			ps.close();
-			con.close();
-			}catch (SQLException e) {
-				System.out.println(e.toString());
-			}
+			String sql = "DELETE FROM pelicula WHERE id= " + selected;
+			PreparedStatement consult = con.prepareStatement(sql);
+			consult.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		
-		return info;
 	}
-	*/
 }

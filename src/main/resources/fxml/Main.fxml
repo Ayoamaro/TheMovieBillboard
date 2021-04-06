@@ -111,6 +111,18 @@
    <left>
       <VBox alignment="CENTER" prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="startBTN" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStartAction" text="¡Comencemos!">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/start.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets bottom="230.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="createBTN" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCreateAction" text="Crear">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">

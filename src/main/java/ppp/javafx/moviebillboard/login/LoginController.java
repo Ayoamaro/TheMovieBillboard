@@ -74,7 +74,7 @@ public class LoginController implements Initializable {
 		}
 		
 		if (verify == true) { 
-			App.goToMovieBillboard(); 
+			App.goToMovieBillboard(md5User);
 		} else {
 			ReadCSV.wrongCredentials();
 		}

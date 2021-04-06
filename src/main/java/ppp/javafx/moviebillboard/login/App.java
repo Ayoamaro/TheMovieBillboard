@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ppp.javafx.moviebillboard.main.MainController;
 import ppp.javafx.moviebillboard.util.Config;
+import ppp.javafx.moviebillboard.util.MenuFunctions;
 
 /**
  * @author Ayoze Amaro
@@ -49,9 +50,10 @@ public class App extends Application {
 		return primaryStage;
 	}
 	
-	public static void goToMovieBillboard() {
+	public static void goToMovieBillboard(String md5User) {
 		primaryStage.setScene(mainScene);
-		primaryStage.setTitle("The Movie Billboard");
+		primaryStage.setTitle("The Movie Billboard - " + md5User);
+		primaryStage.setResizable(true);
 	}
 
 	public static void main(String[] args) {

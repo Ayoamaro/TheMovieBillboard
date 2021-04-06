@@ -7,10 +7,16 @@ import java.net.URISyntaxException;
 import java.util.Optional;
 
 import javafx.event.Event;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,7 +25,38 @@ import javafx.stage.Stage;
  *
  */
 public class MenuFunctions {
-
+	
+	public static void activateButtons(Button createBTN, Button editBTN, Button deleteBTN, Button detailsBTN) {
+		createBTN.setDisable(false);
+		editBTN.setDisable(false);
+		deleteBTN.setDisable(false);
+		detailsBTN.setDisable(false);
+	}
+	
+	public static void disableButtons(Button createBTN, Button editBTN, Button deleteBTN) {
+		createBTN.setDisable(true);
+		editBTN.setDisable(true);
+		deleteBTN.setDisable(true);
+	}
+	
+	public static void startAplication(String text) {
+		HBox root = new HBox();
+	    Label infoComponent =  new Label();
+	    infoComponent.setText(text);
+	    root.setAlignment(Pos.CENTER);
+	    
+	    root.getChildren().addAll(infoComponent);
+	    Scene scene = new Scene(root, 425, 135);
+	    infoComponent.getStyleClass().add("info");
+	    Stage stage = new Stage();
+	    stage.getIcons().add(new Image(ClassLoader.getSystemResourceAsStream("images/icon.png")));
+	    stage.setTitle("¡Comencemos!");
+	    stage.setScene(scene);
+	    stage.show();
+	}
+	
+	
+	
 	public static void exitAplication(Event event, BorderPane view) {
 		Stage stage = (Stage)view.getScene().getWindow();
 		
@@ -32,7 +69,7 @@ public class MenuFunctions {
 		
     	Optional<ButtonType> result = alert.showAndWait();
     	
-    	if(result.get()==ButtonType.OK) {
+    	if(result.get() == ButtonType.OK) {
     		stage.close();
     	} else {
     		event.consume();
@@ -54,4 +91,6 @@ public class MenuFunctions {
 			e.printStackTrace();
 		}
 	}
+
+	
 }
