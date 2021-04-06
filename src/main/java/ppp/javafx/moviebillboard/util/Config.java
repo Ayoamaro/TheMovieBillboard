@@ -18,7 +18,6 @@ private static final String DB_NAME = "BillboardDB.db";
 
 	public static File initDatabase() {
 		try {
-			System.out.println("initDatabase");
 			if (!dbFile.exists()) { 
 				if (!configDir.exists()) {
 					configDir.mkdir();
