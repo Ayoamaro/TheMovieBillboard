@@ -25,7 +25,7 @@ public class ReportMain {
 	public static void generatePdf(ListProperty<Movie> movieList) throws JRException, IOException {
 		
 		// compile the report
-		JasperReport report = JasperCompileManager.compileReport(ReportMain.class.getResourceAsStream("/reports/budget.jrxml"));		
+		JasperReport report = JasperCompileManager.compileReport(ReportMain.class.getResourceAsStream("/reports/billboard.jrxml"));		
 
 		// parameter map for report
 		Map<String, Object> parameters = new HashMap<String, Object>();
