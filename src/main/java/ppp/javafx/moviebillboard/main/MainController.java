@@ -30,11 +30,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 import ppp.database.DBConnection;
 import ppp.database.DBUtils;
 import ppp.javafx.moviebillboard.login.App;
 import ppp.javafx.moviebillboard.model.Movie;
 import ppp.javafx.moviebillboard.util.MenuFunctions;
+import ppp.javafx.moviebillboard.util.ReportMain;
 
 /**
  * @author Ayoze Amaro
@@ -91,10 +93,15 @@ public class MainController implements Initializable {
 	// MENU BAR
 	@FXML
 	void onExportPDFAction(ActionEvent event) throws IOException { 
-		
+		try {
+			ReportMain.generatePdf(movieList);
+		} catch (JRException | IOException e) {
+			e.printStackTrace();
+		}
 	}
+	
 	@FXML
-	void onReportProblemAction(ActionEvent event) throws IOException { }
+	void onReportProblemAction(ActionEvent event) throws IOException {  }
 	
 	@FXML
 	void onExitAction(ActionEvent event) throws IOException { 
@@ -259,7 +266,7 @@ public class MainController implements Initializable {
 					newMovie.setIdTipo(idTipo.getValue());
 					
 					con.establishConnection();
-					DBUtils.updateData(con.getCon(), selected);
+					DBUtils.updateData(con.getCon(), newMovie);
 					con.closeConnection();
 		        	
 		    		return newMovie;
@@ -327,8 +334,6 @@ public class MainController implements Initializable {
 			DBUtils.showInfo(con.getCon(), selected);
 			con.closeConnection();
 		}
-		
-		
 	}
 	
 	// SHOW VIEW

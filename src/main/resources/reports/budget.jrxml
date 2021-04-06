@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inventario" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="50" bottomMargin="50" uuid="9efdda5a-4f3c-44b4-a32a-6a6e018401b7">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TheMovieBillboard"/>
+	<parameter name="aplication" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="agno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[agno]]></fieldDescription>
+	</field>
+	<field name="pais" class="java.lang.String">
+		<fieldDescription><![CDATA[pais]]></fieldDescription>
+	</field>
+	<field name="director" class="java.lang.String">
+		<fieldDescription><![CDATA[director]]></fieldDescription>
+	</field>
+	<field name="idTipo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idTipo]]></fieldDescription>
+	</field>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="107" y="0" width="280" height="50" uuid="3027aba3-c38b-42a2-a8ee-510197f393cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Assistant" size="31" isBold="true"/>
+				</textElement>
+				<text><![CDATA[The Movie Billboard]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="19" height="20" uuid="6a4f5a10-8be4-4321-aa4e-62c6eeea3b72">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb867624-619e-4724-97e4-40ddaba27d1a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="0" width="140" height="20" uuid="345dd15d-600d-459e-93da-ff061e6188f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="26" width="491" height="1" uuid="3647814d-8ae2-4af7-9e1f-74871b5c7357"/>
+			</line>
+			<staticText>
+				<reportElement x="160" y="0" width="50" height="20" uuid="24808160-4e49-4673-bd2f-11c2d793a661">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="110" height="20" uuid="e235b253-6cdc-4c18-bfdd-83c1980d365d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[País]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="130" height="20" uuid="c96d0655-252c-4105-9ce2-c9b99f0aa9d1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[Director]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="30" height="20" uuid="2328ad1c-83b3-4019-94c9-7d094c236880">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb867624-619e-4724-97e4-40ddaba27d1a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant SemiBold" size="12"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="19" height="18" uuid="b23686b3-d05f-4a27-92a2-6f5fbfc46626">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb867624-619e-4724-97e4-40ddaba27d1a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="140" height="18" uuid="11ad3f32-5765-4464-bb1b-1a6a3db48202">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="50" height="18" uuid="3f0587f7-1ab2-4dbd-9f41-993e5c9faf80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="110" height="18" uuid="b5cfceab-2123-4db1-8b6d-fe73b6bc90f5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="130" height="18" uuid="7d447e6e-ea68-4f6d-89c3-9fd3304183b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6826e934-b846-4a88-b54a-8c6b99cd35bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{director}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="30" height="18" uuid="cf75a09d-9eaa-45d8-918b-67a26270f213">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb867624-619e-4724-97e4-40ddaba27d1a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idTipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="390" y="0" width="100" height="30" uuid="1287a0f4-89d7-461a-ada6-a70a06756012"/>
+				<textElement textAlignment="Right">
+					<font fontName="Assistant"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
