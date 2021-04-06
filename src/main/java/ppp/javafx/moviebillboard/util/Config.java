@@ -7,12 +7,12 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * @author Ayoze Amaro
- *
+ * @version 06/04/2021
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class Config {
 
-private static final String DB_NAME = "BillboardDB.db";
-	
+	private static final String DB_NAME = "BillboardDB.db";
 	private static File configDir = new File(System.getProperty("user.home"), ".TheMovieBillboard");
 	private static File dbFile = new File(configDir, DB_NAME);
 

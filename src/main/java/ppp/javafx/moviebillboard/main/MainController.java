@@ -40,7 +40,8 @@ import ppp.javafx.moviebillboard.util.ReportMain;
 
 /**
  * @author Ayoze Amaro
- *
+ * @version 06/04/2021
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class MainController implements Initializable {
 
