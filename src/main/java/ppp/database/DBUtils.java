@@ -23,7 +23,7 @@ import ppp.javafx.moviebillboard.model.Movie;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class DBUtils {
 
@@ -102,6 +102,7 @@ public class DBUtils {
 	 * Insert new movies on database
 	 * @param con - (Connection) Establish with database
 	 * @param newMovie - (Movie) Get new movie params
+	 * @return insert - Movie inserted
 	 */
 	public static int createData(Connection con, Movie newMovie) {
 		try {
@@ -126,7 +127,8 @@ public class DBUtils {
 	/**
 	 * Update existing movies on database
 	 * @param con - (Connection) Establish with database
-	 * @param newMovie - (Movie) Get new movie params
+	 * @param selected - (Movie) Get new movie params
+	 * @return update - Movie updated
 	 */
 	public static int updateData(Connection con, Movie selected) {
 		try {
@@ -152,6 +154,7 @@ public class DBUtils {
 	 * Show info about a movie
 	 * @param con - (Connection) Establish with database
 	 * @param selected - (Integer) Specific record to search on database
+	 * @throws IOException - Problem detected
 	 */
 	public static void showInfo(Connection con, Integer selected) throws IOException {
 		showInfoWindow(detailsData(con, selected));
@@ -160,6 +163,7 @@ public class DBUtils {
 	/**
 	 * New Window to show details information
 	 * @param info - (String) Information about the movie
+	 * @throws IOException - Problem detected
 	 */
 	public static void showInfoWindow(String info) throws IOException {
         HBox root = new HBox();
@@ -181,6 +185,7 @@ public class DBUtils {
 	 * Search info on database about the record selected
 	 * @param con - (Connection) Establish with database
 	 * @param selected - (Integer) Specific record to search on database
+	 * @return info - Movie details
 	 */
 	public static String detailsData(Connection con, Integer selected) {
 		String info = "";
@@ -212,7 +217,6 @@ public class DBUtils {
 			String sql = "DELETE FROM pelicula WHERE id= " + selected;
 			PreparedStatement consult = con.prepareStatement(sql);
 			consult.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

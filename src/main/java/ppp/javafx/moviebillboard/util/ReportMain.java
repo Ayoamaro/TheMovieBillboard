@@ -20,15 +20,15 @@ import ppp.javafx.moviebillboard.model.Movie;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class ReportMain {
 	
 	/**
 	 * Generate PDF File with JasperReport utils
 	 * @param movieList - (ListProperty) All movies of database
-	 * @throws JRException
-	 * @throws IOException
+	 * @throws JRException - Problem detected
+	 * @throws IOException - Problem detected
 	 */
 	public static void generatePdf(ListProperty<Movie> movieList) throws JRException, IOException {
 		

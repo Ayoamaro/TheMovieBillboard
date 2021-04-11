@@ -9,7 +9,7 @@ import org.apache.commons.io.FileUtils;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class Config {
 
@@ -19,6 +19,7 @@ public class Config {
 
 	/**
 	 * Initialization of Database File 
+	 * @return dbFile - Database file at resources
 	 */
 	public static File initDatabase() {
 		try {

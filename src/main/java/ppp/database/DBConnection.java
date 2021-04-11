@@ -10,7 +10,7 @@ import ppp.javafx.moviebillboard.util.Config;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class DBConnection {
 

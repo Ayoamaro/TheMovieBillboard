@@ -11,7 +11,7 @@ import ppp.javafx.moviebillboard.util.Config;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class App extends Application {
 
@@ -25,7 +25,7 @@ public class App extends Application {
 	
 	/**
      * Application and Database initialization
-     * @throws Exception
+     * @throws Exception - Problem detected
      */
 	@Override
 	public void init() throws Exception {
@@ -36,7 +36,7 @@ public class App extends Application {
 	/**
      * Application start
      * @param primaryStage - (Stage) Main scene of the application
-     * @throws Exception
+     * @throws Exception - Problem detected
      */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -84,7 +84,7 @@ public class App extends Application {
 
 	/**
      * Main thread method
-     * @param args
+     * @param args - Array value
      */
 	public static void main(String[] args) {
 		launch(args);

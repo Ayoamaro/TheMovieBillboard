@@ -40,7 +40,7 @@ import ppp.javafx.moviebillboard.util.MenuFunctions;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class MainController implements Initializable {
 
@@ -61,7 +61,7 @@ public class MainController implements Initializable {
 	
 	/**
 	 * MainController constructor
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	public MainController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
@@ -96,7 +96,7 @@ public class MainController implements Initializable {
 	/**
 	 * Export a PDF file
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onExportPDFAction(ActionEvent event) throws IOException { 
@@ -106,7 +106,7 @@ public class MainController implements Initializable {
 	/**
 	 * Make an issue on GitHub repository
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onReportProblemAction(ActionEvent event) throws IOException { 
@@ -116,7 +116,7 @@ public class MainController implements Initializable {
 	/**
 	 * Close the Application
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onExitAction(ActionEvent event) throws IOException { 
@@ -126,7 +126,7 @@ public class MainController implements Initializable {
 	/**
 	 * Open profile GitHub on WebView
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onGitHubAction(ActionEvent event) throws IOException { 
@@ -136,7 +136,7 @@ public class MainController implements Initializable {
 	/**
 	 * Open profile LinkedIn on WebView
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onLinkedInAction(ActionEvent event) throws IOException { 
@@ -146,7 +146,7 @@ public class MainController implements Initializable {
 	/**
 	 * Activate functions to user connected
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onStartAction(ActionEvent event) throws IOException { 
@@ -174,7 +174,7 @@ public class MainController implements Initializable {
 	/**
 	 * Create a new movie
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onCreateAction(ActionEvent event) throws IOException { 
@@ -242,7 +242,7 @@ public class MainController implements Initializable {
 	/**
 	 * Update a existing movie
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onUpdateAction(ActionEvent event) throws IOException { 
@@ -328,7 +328,7 @@ public class MainController implements Initializable {
 	/**
 	 * Delete a existing movie
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onDeleteAction(ActionEvent event) throws IOException { 
@@ -368,7 +368,7 @@ public class MainController implements Initializable {
 	/**
 	 * Show details about a movie
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onDetailsAction(ActionEvent event) throws IOException {

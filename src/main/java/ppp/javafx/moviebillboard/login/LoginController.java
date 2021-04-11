@@ -24,7 +24,7 @@ import ppp.javafx.moviebillboard.util.ReadCSV;
  * @author Ayoze Amaro
  * @version 1.0
  * @since 2021-06-04 (YYYY/DD/MM)
- * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
+ * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard"> TheMovieBillboard Github </a>
  */
 public class LoginController implements Initializable {
 
@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
 	
 	/**
 	 * LoginController constructor
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	public LoginController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
 	/**
 	 * Allows the user to Login
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onLoginAction(ActionEvent event) throws IOException { 
@@ -95,7 +95,7 @@ public class LoginController implements Initializable {
 	/**
 	 * Reset the Text and Password Fields
 	 * @param event - (ActionEvent)
-	 * @throws IOException
+	 * @throws IOException - Problem detected
 	 */
 	@FXML
 	void onCancelAction(ActionEvent event) throws IOException { 
