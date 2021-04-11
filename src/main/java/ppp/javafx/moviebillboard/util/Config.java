@@ -7,15 +7,19 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * @author Ayoze Amaro
- * @version 06/04/2021
+ * @version 1.0
+ * @since 2021-06-04 (YYYY/DD/MM)
  * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class Config {
 
-	private static final String DB_NAME = "BillboardDB.db";
-	private static File configDir = new File(System.getProperty("user.home"), ".TheMovieBillboard");
-	private static File dbFile = new File(configDir, DB_NAME);
+	private static final String DB_NAME = "BillboardDB.db";	// String DB_NAME
+	private static File configDir = new File(System.getProperty("user.home"), ".TheMovieBillboard");	// File configDir
+	private static File dbFile = new File(configDir, DB_NAME);	// File dbFile
 
+	/**
+	 * Initialization of Database File 
+	 */
 	public static File initDatabase() {
 		try {
 			if (!dbFile.exists()) { 
@@ -32,10 +36,18 @@ public class Config {
 		}
 	}
 	
+	/**
+	 * Returns database name file
+	 * @return dbFile - (File)
+	 */
 	public static File getDbFile() {
 		return dbFile;
 	}
 	
+	/**
+	 * Returns the directory path
+	 * @return configDir - (String)
+	 */
 	public static String getConfigDir() {
 		return configDir.getAbsolutePath();
 	}

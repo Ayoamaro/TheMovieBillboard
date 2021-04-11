@@ -14,11 +14,16 @@ import javafx.stage.Stage;
 
 /**
  * @author Ayoze Amaro
- * @version 06/04/2021
+ * @version 1.0
+ * @since 2021-06-04 (YYYY/DD/MM)
  * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class ReadCSV {
 
+	/**
+	 * Read CSV file to get User and Password
+	 * @param linesCSV - (ArrayList) Information about the movie
+	 */
 	public static void readUsersFile(ArrayList<String> linesCSV) {
 		try {
 		    File file = new File ("src/main/resources/database/users.csv");
@@ -36,6 +41,9 @@ public class ReadCSV {
 		}
 	}
 	
+	/**
+	 * Alert to explains problems on Login
+	 */
 	public static void wrongCredentials() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Credenciales erróneas");

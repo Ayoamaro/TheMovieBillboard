@@ -30,49 +30,51 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import net.sf.jasperreports.engine.JRException;
 import ppp.database.DBConnection;
 import ppp.database.DBUtils;
 import ppp.javafx.moviebillboard.login.App;
 import ppp.javafx.moviebillboard.model.Movie;
 import ppp.javafx.moviebillboard.util.MenuFunctions;
-import ppp.javafx.moviebillboard.util.ReportMain;
 
 /**
  * @author Ayoze Amaro
- * @version 06/04/2021
+ * @version 1.0
+ * @since 2021-06-04 (YYYY/DD/MM)
  * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class MainController implements Initializable {
 
-	// MODEL
-	private ListProperty<Movie> movieList = new SimpleListProperty<Movie>(FXCollections.observableArrayList());
-	private DBConnection con;
-	private Integer errorDetected = 1;
+	private ListProperty<Movie> movieList = new SimpleListProperty<Movie>(FXCollections.observableArrayList());	// ListProperty with all the movies
+	private DBConnection con;	// Connection with database
+	private Integer errorDetected = 1;	// Integer to detect an error
 	
-	// VIEW
 	@FXML
-	private BorderPane view;
+	private BorderPane view;	// BorderPane view
 	@FXML
-	private TableView<Movie> movieTBL;
+	private TableView<Movie> movieTBL;	// TableView of Movie
 	@FXML
-	private TableColumn<Movie, Integer> idCOL, yearCOL, typeCOL;
+	private TableColumn<Movie, Integer> idCOL, yearCOL, typeCOL;	// TableColumn Movie and Integer
 	@FXML
-	private TableColumn<Movie, String> nameCOL, countryCOL, directorCOL;
+	private TableColumn<Movie, String> nameCOL, countryCOL, directorCOL;	// TableColumn Movie and String
 	@FXML
-	private Button startBTN, createBTN, editBTN, deleteBTN, detailsBTN;
+	private Button startBTN, createBTN, editBTN, deleteBTN, detailsBTN;	// Button view
 	
-	
-	// CONSTRUCTOR
+	/**
+	 * MainController constructor
+	 * @throws IOException
+	 */
 	public MainController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
 	
-	
+	/**
+	 * Initialization of MainController
+	 * @param location - (URL)
+	 * @param resources - (ResourceBundle)
+	 */
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		con = new DBConnection();
 		con.establishConnection();
 
@@ -91,34 +93,61 @@ public class MainController implements Initializable {
 		con.closeConnection();
 	}
 	
-	// MENU BAR
+	/**
+	 * Export a PDF file
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onExportPDFAction(ActionEvent event) throws IOException { 
-		try {
-			ReportMain.generatePdf(movieList);
-		} catch (JRException | IOException e) {
-			e.printStackTrace();
-		}
+		MenuFunctions.exportPdf(event, movieList);
 	}
 	
+	/**
+	 * Make an issue on GitHub repository
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
-	void onReportProblemAction(ActionEvent event) throws IOException {  }
+	void onReportProblemAction(ActionEvent event) throws IOException { 
+		MenuFunctions.reportBug(event);
+	}
 	
+	/**
+	 * Close the Application
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onExitAction(ActionEvent event) throws IOException { 
     	MenuFunctions.exitAplication(event, view);
 	}
 	
+	/**
+	 * Open profile GitHub on WebView
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onGitHubAction(ActionEvent event) throws IOException { 
 		MenuFunctions.openGitHub(event);
 	}
 	
+	/**
+	 * Open profile LinkedIn on WebView
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onLinkedInAction(ActionEvent event) throws IOException { 
 		MenuFunctions.openLinkedIn(event);
 	}
 	
+	/**
+	 * Activate functions to user connected
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onStartAction(ActionEvent event) throws IOException { 
 		String title = App.getPrimaryStage().getTitle();
@@ -142,7 +171,11 @@ public class MainController implements Initializable {
 	}
 	
 	
-	// BUTTONS (CRUD)
+	/**
+	 * Create a new movie
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onCreateAction(ActionEvent event) throws IOException { 
 		Dialog<Movie> tab = new Dialog<Movie>();
@@ -154,7 +187,7 @@ public class MainController implements Initializable {
 		Stage stage = (Stage) tab.getDialogPane().getScene().getWindow();
 		stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
 		
-		// CREATE SCENE TAB WITH GRIDPANE
+		// CREATE NEW SCENE TAB WITH GRIDPANE
 		GridPane scene = new GridPane();
 		scene.setHgap(10);
 		scene.setVgap(10);
@@ -170,6 +203,7 @@ public class MainController implements Initializable {
 		Spinner<Integer> idTipo = new Spinner<Integer>(0, 10000, 0);
 		idTipo.setEditable(true);
 		
+		// ADD ELEMENTS TO SCENE TAB
 		scene.addRow(0, new Label("ID: "), id);
 		scene.addRow(1, new Label("Nombre: "), nombre);
 		scene.addRow(2, new Label("Año: "), agno);
@@ -205,6 +239,11 @@ public class MainController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Update a existing movie
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onUpdateAction(ActionEvent event) throws IOException { 
 		Movie selected = movieTBL.getSelectionModel().getSelectedItem();
@@ -222,7 +261,7 @@ public class MainController implements Initializable {
 			Stage stage = (Stage) tab.getDialogPane().getScene().getWindow();
 			stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
 			
-			// CREATE SCENE TAB WITH GRIDPANE
+			// CREATE NEW SCENE TAB WITH GRIDPANE
 			GridPane scene = new GridPane();
 			scene.setHgap(10);
 			scene.setVgap(10);
@@ -245,7 +284,7 @@ public class MainController implements Initializable {
 			director.setText(selected.getDirector().toString());
 			idTipo.getValueFactory().setValue(selected.getIdTipo());
 			
-			
+			// ADD ELEMENTS TO SCENE TAB
 			scene.addRow(0, new Label("ID: "), id);
 			scene.addRow(1, new Label("Nombre: "), nombre);
 			scene.addRow(2, new Label("Año: "), agno);
@@ -286,6 +325,11 @@ public class MainController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Delete a existing movie
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onDeleteAction(ActionEvent event) throws IOException { 
 		Movie movieSelected = movieTBL.getSelectionModel().getSelectedItem();
@@ -321,6 +365,11 @@ public class MainController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Show details about a movie
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onDetailsAction(ActionEvent event) throws IOException {
 		Movie movieSelected = movieTBL.getSelectionModel().getSelectedItem();
@@ -337,7 +386,10 @@ public class MainController implements Initializable {
 		}
 	}
 	
-	// SHOW VIEW
+	/**
+	 * App thread method
+	 * @return view - (BorderPane)
+	 */
 	public BorderPane getView() {
 		return view;
 	}

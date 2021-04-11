@@ -21,11 +21,17 @@ import ppp.javafx.moviebillboard.model.Movie;
 
 /**
  * @author Ayoze Amaro
- * @version 06/04/2021
+ * @version 1.0
+ * @since 2021-06-04 (YYYY/DD/MM)
  * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class DBUtils {
 
+	/**
+	 * Handle errors method
+	 * @param errorDetected - (Integer)
+	 * @param view - (BorderPane)
+	 */
 	public static void solvedProblems(int errorDetected, BorderPane view) {
 		switch (errorDetected) {
 			case 1:
@@ -64,6 +70,11 @@ public class DBUtils {
 		}
 	}
 	
+	/**
+	 * Collect all the movies of database
+	 * @param con - (Connection) Establish with database
+	 * @param list - (ObservableList) List with all the movies
+	 */
 	public static void readData(Connection con, ObservableList<Movie> list) {
 		try {
 			String sql = "SELECT * FROM pelicula";
@@ -87,6 +98,11 @@ public class DBUtils {
 		}
 	}
 	
+	/**
+	 * Insert new movies on database
+	 * @param con - (Connection) Establish with database
+	 * @param newMovie - (Movie) Get new movie params
+	 */
 	public static int createData(Connection con, Movie newMovie) {
 		try {
 			String sql = "INSERT INTO pelicula (id, nombre, agno, pais, director, idTipo) VALUES (?,?,?,?,?,?)";
@@ -107,6 +123,11 @@ public class DBUtils {
 		
 	}
 	
+	/**
+	 * Update existing movies on database
+	 * @param con - (Connection) Establish with database
+	 * @param newMovie - (Movie) Get new movie params
+	 */
 	public static int updateData(Connection con, Movie selected) {
 		try {
 			String sql = "UPDATE pelicula SET id=?, nombre=?, agno=?, pais=?, director=?, idTipo=? WHERE id= " + selected.getId();
@@ -127,10 +148,19 @@ public class DBUtils {
 		
 	}
 	
+	/**
+	 * Show info about a movie
+	 * @param con - (Connection) Establish with database
+	 * @param selected - (Integer) Specific record to search on database
+	 */
 	public static void showInfo(Connection con, Integer selected) throws IOException {
 		showInfoWindow(detailsData(con, selected));
 	}
 	
+	/**
+	 * New Window to show details information
+	 * @param info - (String) Information about the movie
+	 */
 	public static void showInfoWindow(String info) throws IOException {
         HBox root = new HBox();
         Label infoComponent =  new Label();
@@ -147,6 +177,11 @@ public class DBUtils {
         stage.show();
 	}
 	
+	/**
+	 * Search info on database about the record selected
+	 * @param con - (Connection) Establish with database
+	 * @param selected - (Integer) Specific record to search on database
+	 */
 	public static String detailsData(Connection con, Integer selected) {
 		String info = "";
 		try {
@@ -167,7 +202,11 @@ public class DBUtils {
 		return info;
 	}
 
-	
+	/**
+	 * Delete existing movies on database
+	 * @param con - (Connection) Establish with database
+	 * @param selected - (Integer) Specific record to search on database
+	 */
 	public static void deleteData(Connection con, Integer selected) {
 		try {
 			String sql = "DELETE FROM pelicula WHERE id= " + selected;

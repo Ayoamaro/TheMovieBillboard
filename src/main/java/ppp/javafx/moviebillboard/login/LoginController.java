@@ -22,42 +22,53 @@ import ppp.javafx.moviebillboard.util.ReadCSV;
 
 /**
  * @author Ayoze Amaro
- * @version 06/04/2021
+ * @version 1.0
+ * @since 2021-06-04 (YYYY/DD/MM)
  * @see <a href = "https://github.com/Ayoamaro/TheMovieBillboard" /> TheMovieBillboard Github </a>
  */
 public class LoginController implements Initializable {
 
-	// MODEL
-	private Login model = new Login();
-	private ArrayList<String> linesCSV = new ArrayList<>();
+	private Login model = new Login();	// Model login
+	private ArrayList<String> linesCSV = new ArrayList<>();	// ArrayList with CSV lines
 	
-	// VIEW
 	@FXML
-	private GridPane view;
+	private GridPane view;	// GridPane view
 	@FXML
-	private Label userLBL, pswdLBL;
+	private Label userLBL, pswdLBL;	// Label of User and Password 
 	@FXML
-	private TextField userTXT;
+	private TextField userTXT;	// User TextField
 	@FXML
-	private PasswordField pswdTXT;
+	private PasswordField pswdTXT;	// Password Field
 	@FXML
-	private Button loginBTN, cancelBTN;
+	private Button loginBTN, cancelBTN;	// Button of Login and Cancel
 	
-	// CONSTRUCTOR
+	/**
+	 * LoginController constructor
+	 * @throws IOException
+	 */
 	public LoginController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
 	
+	/**
+	 * Initialization of LoginController
+	 * @param location - (URL)
+	 * @param resources - (ResourceBundle)
+	 */
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		ReadCSV.readUsersFile(linesCSV);
 
 		Bindings.bindBidirectional(userTXT.textProperty(), model.userProperty());
 		Bindings.bindBidirectional(pswdTXT.textProperty(), model.pswdProperty());
 	}
 	
+	/**
+	 * Allows the user to Login
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onLoginAction(ActionEvent event) throws IOException { 
 		Boolean verify = false;
@@ -81,13 +92,21 @@ public class LoginController implements Initializable {
 		}
 	}
 	
+	/**
+	 * Reset the Text and Password Fields
+	 * @param event - (ActionEvent)
+	 * @throws IOException
+	 */
 	@FXML
 	void onCancelAction(ActionEvent event) throws IOException { 
 		userTXT.setText("");
 		pswdTXT.setText("");
 	}
 	
-	// SHOW VIEW
+	/**
+	 * App thread method
+	 * @return view - (GridPane)
+	 */
 	public GridPane getView() {
 		return view;
 	}
