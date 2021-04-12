@@ -16,6 +16,7 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 <img src="docs/github_images/main_preview.png" width=""/>
 </p>
 
+
 ## Instalación 📦
 
 1. Vamos a la pestaña de ***Releases*** y descargamos la **última disponible**
