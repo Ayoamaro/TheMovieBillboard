@@ -12,9 +12,10 @@
 Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/main.html) o la mundialmente conocida [IMDb](https://www.imdb.com), ambas con un catálogo muy extenso de películas, series y documentales que todo amante del cine consume.
 
 <p align="center">
-<img src="docs/github_images/login_preview.PNG" width=""/>
-<img src="docs/github_images/main_preview.PNG" width=""/>
+<img src="docs/github_images/login_preview.png" width=""/>
+<img src="docs/github_images/main_preview.png" width=""/>
 </p>
+
 
 
 ## Instalación 📦
