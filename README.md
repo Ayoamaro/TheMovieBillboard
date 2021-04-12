@@ -50,7 +50,7 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 ## Créditos ❤️
 
-Todos los iconos de la aplicación provienen de www.flaticon.com
+Todos los iconos de la aplicación provienen de [Flaticon](www.flaticon.com)
 
 Hechos por:
 - [ ] [Freepik](https://www.flaticon.es/autores/freepik) 🤖
@@ -58,4 +58,4 @@ Hechos por:
 - [ ] [Smashicons](https://www.flaticon.es/autores/smashicons) 👑
 - [ ] [DinosoftLabs](https://www.flaticon.es/autores/dinosoftlabs) 🦖
 
-El logo de la aplicación es propiedad de [**Hugo Ranz Ramírez**](https://www.domestika.org/fr/hugo_ranz)
+El logo de la aplicación es propiedad de [**Hugo Ranz Ramírez**](https://www.domestika.org/fr/hugo_ranz) 👤
