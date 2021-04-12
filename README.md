@@ -11,11 +11,11 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 
 
-# <p align="center">Uso de la aplicación ⚙️</p>
+# <p align="left">Uso de la aplicación ⚙️</p>
 
 
 
-## <p align="Left"> Instalación 📦</p>
+## <p align="left"> Instalación 📦</p>
 
 1. Vamos a la pestaña de ***Releases*** y descargamos la **última disponible**
 2. Ejecutamos el **instalador**.
@@ -27,7 +27,7 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 
 
-## <p align="Left"> Construido con 🛠️</p>
+## <p align="left"> Construido con 🛠️</p>
 
 - [JavaFX Controls](https://mvnrepository.com/artifact/org.openjfx/javafx-controls) - Elementos, diseño y comportamientos
 - [JavaFX FXML](https://mvnrepository.com/artifact/org.openjfx/javafx-fxml) - Creación de vistas
@@ -39,14 +39,14 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 
 
-## <p align="Left"> Wiki 📖</p>
+## <p align="left"> Wiki 📖</p>
 
 - Manual de usuario **(PRÓXIMAMENTE)**
 - [JavaDoc](https://github.com/Ayoamaro/TheMovieBillboard/tree/main/docs/javadoc)
 
 
 
-## <p align="Left">Créditos ❤️</p> 
+## <p align="left">Créditos ❤️</p> 
 
 Todos los iconos de la aplicación provienen de www.flaticon.com
 
