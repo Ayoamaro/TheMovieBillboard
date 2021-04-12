@@ -51,6 +51,7 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 ## Créditos ❤️
 
 Todos los iconos de la aplicación provienen de www.flaticon.com
+
 Hechos por:
 - [ ] [Freepik](https://www.flaticon.es/autores/freepik) 🤖
 - [ ] [Pixel Perfect](https://www.flaticon.es/autores/pixel-perfect) 👾
