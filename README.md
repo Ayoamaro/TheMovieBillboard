@@ -57,3 +57,5 @@ Hechos por:
 - [ ] [Pixel Perfect](https://www.flaticon.es/autores/pixel-perfect) 👾
 - [ ] [Smashicons](https://www.flaticon.es/autores/smashicons) 👑
 - [ ] [DinosoftLabs](https://www.flaticon.es/autores/dinosoftlabs) 🦖
+
+El logo de la aplicación es propiedad de [**Hugo Ranz Ramírez**](https://www.domestika.org/fr/hugo_ranz)
