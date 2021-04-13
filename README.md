@@ -1,5 +1,5 @@
 <p align="center"><img src="docs/github_images/header.png" width=""/></p>
-<p align="center"><strong>Aplicación de escritorio con información y curiosidades de los estrenos de cine</strong></p>
+<p align="center"><strong>Aplicación de escritorio para la gestión de una BD de películas</strong></p>
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-%250778B9.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
