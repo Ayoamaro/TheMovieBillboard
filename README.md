@@ -44,7 +44,7 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 ## Wiki 📖
 
-- Manual de usuario **(PRÓXIMAMENTE)**
+- [Manual de usuario](https://github.com/Ayoamaro/TheMovieBillboard/blob/main/USERMANUAL.md)
 - [JavaDoc](https://github.com/Ayoamaro/TheMovieBillboard/tree/main/docs/javadoc)
 
 
