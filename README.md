@@ -20,13 +20,13 @@ Esta idea parte de páginas como [FilmAffinity](https://www.filmaffinity.com/es/
 
 ## Instalación 📦
 
-1. Vamos a la pestaña de ***Releases*** y descargamos la **última disponible**
-2. Ejecutamos el **instalador**.
-3. Seleccionamos un **idioma** y confirmamos.
-4. Aceptamos el **acuerdo de licencia** y continuamos.
-5. Marcamos la casilla de crear un **acceso directo** en el escritorio si así lo deseamos.
-6. Pulsamos **instalar** y esperamos a que finalice.
-7. Una vez que acabe, la aplicación **se abrirá automáticamente**.
+1. Vamos a la pestaña de ***Releases*** y descargamos la **Última Disponible**
+2. Ejecutamos el **Instalador**
+3. Seleccionamos un **Idioma** y confirmamos
+4. Aceptamos el **Acuerdo de Licencia** y continuamos
+5. Marcamos la casilla de crear un **Acceso Directo** en el escritorio si así lo deseamos
+6. Pulsamos **Instalar** y esperamos a que finalice
+7. Una vez que acabe, la aplicación **se abrirá automáticamente**
 
 
 
