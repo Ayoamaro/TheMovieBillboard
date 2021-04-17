@@ -68,5 +68,5 @@ Por último, en el menú principal de la barra superior tendremos las siguientes
 - **Exportar a PDF**: se creará un archivo PDF con todos los registros existentes de la base de datos al momento que la realicemos.
 - **Reportar un problema**: nos redirigirá a la pestaña "*Issues*" del repositorio GitHub de este proyecto
 - **Acerca de**: dispondrá de las redes sociales del desarrollador de la aplicación
-  - **Github**
-  - **LinkedIn**
+  - [**Github**](https://github.com/Ayoamaro)
+  - [**LinkedIn**](https://www.linkedin.com/in/ayoamaro/)
